@@ -23,7 +23,7 @@ def fact(numbr):
                 return
 
 
-def factors(fle_name):
+def theFactors(fle_name):
     """function will read file and print them"""
 
     with open(fle_name, encoding="utf-8") as myFile:
@@ -33,4 +33,4 @@ def factors(fle_name):
 
 
 if __name__ == "__main__":
-    factors(argv[1])
+    theFactors(argv[1])
