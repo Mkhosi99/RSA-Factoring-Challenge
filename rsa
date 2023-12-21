@@ -34,13 +34,13 @@ def fact(numbr):
                     return
 
 
-def theFactors(fle_name):
+def factors(fle_name):
     """This function will read a file"""
-    with open(fle_name, encoding="utf-8") as Myfile:
-        for x in Myfile.readlines():
-            y = int(x)
-            answer = fact(y)
+    with open(fle_name, encoding="utf-8") as myFile:
+        for x in myFile.readlines():
+            n = int(x)
+            answer = fact(n)
 
 
 if __name__ == "__main__":
-    theFactors(argv[1])
+    factors(argv[1])
