@@ -1,0 +1,46 @@
+#!/usr/bin/python3
+from sys import argv
+import math
+"""Meant to get the first two factors of any number"""
+
+
+def prime_num(numbr):
+    """function assess if a number is a prime number"""
+    x = 3
+    if numbr % 2 == 0:
+        return False
+    while x * x <= numbr:
+        if numbr % x == 0:
+            return False
+        x += 2
+    return True
+
+
+def fact(numbr):
+    """Function will determine the factors of a number & print them"""
+    if numbr % 2 == 0:
+        x = 2
+        print("{}={}*{}".format(numbr, int(numbr/x), x))
+    else:
+        sqre = math.sqrt(numbr)
+        if sqre % 1 == 0:
+            print("{}={}*{}".format(numbr, sqre, int(numbr/sqre)))
+            return
+        sqre = int(sqre) + 1
+        for x in range(3, sqre, +2):
+            if numbr % x == 0:
+                if prime_num(x):
+                    print("{}={}*{}".format(numbr, int(numbr/x), x))
+                    return
+
+
+def theFactors(fle_name):
+    """This function will read a file"""
+    with open(fle_name, encoding="utf-8") as Myfile:
+        for x in Myfile.readlines():
+            y = int(x)
+            answer = fact(y)
+
+
+if __name__ == "__main__":
+    theFactors(argv[1])
