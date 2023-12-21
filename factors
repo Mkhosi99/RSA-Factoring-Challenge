@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+from sys import argv
+import math
+"""Meant to factorize as many numbers as possible into a product of 2 smaller numbers"""
+
+
+def fact(numbr):
+    """This function gets the factors of a number"""
+    if numbr % 2 == 0:
+        m = 2
+        print("{}={}*{}".format(numbr, int(numbr//m), m))
+    else:
+        sqre = int(math.sqrt(numbr)) + 1
+        for m in range(3, sqre, +2):
+            if numbr % m == 0:
+                print("{}={}*{}".format(numbr, int(numbr//m), m))
+                return
+            if numbr % (sqre + m) == 0:
+                print("{}={}*{}".format(numbr, sqre + m, int(numbr//(sqre + m))))
+                return
+            if numbr % (sqre - m) == 0:
+                print("{}={}*{}".format(numbr, sqre - 1, int(numbr//(sqre - m))))
+                return
+
+
+def theFactors(fle_name):
+    """function will read file and print them"""
+
+    with open(fle_name, encoding="utf-8") as Myfile:
+        for x in Myfile.readlines():
+            y = int(x)
+            answer = fact(y)
+
+
+if __name__ == "__main__":
+    theFactors(argv[1])
