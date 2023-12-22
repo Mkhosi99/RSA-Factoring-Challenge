@@ -1,25 +1,25 @@
 #!/usr/bin/python3
 from sys import argv
 import math
-"""Meant to factorize as many numbers as possible into a product of 2 smaller numbers"""
+"""will factorize as many numbers into a product of 2 smaller numbers"""
 
 
-def fact(numbr):
+def fact(numb):
     """This function gets the factors of a number"""
-    if numbr % 2 == 0:
+    if numb % 2 == 0:
         m = 2
-        print("{}={}*{}".format(numbr, int(numbr//m), m))
+        print("{}={}*{}".format(numb, int(numb//m), m))
     else:
-        sqre = int(math.sqrt(numbr)) + 1
-        for m in range(3, sqre, +2):
-            if numbr % m == 0:
-                print("{}={}*{}".format(numbr, int(numbr//m), m))
+        sqr = int(math.sqrt(numb)) + 1
+        for m in range(3, sqr, +2):
+            if numb % m == 0:
+                print("{}={}*{}".format(numb, int(numb//m), m))
                 return
-            if numbr % (sqre + m) == 0:
-                print("{}={}*{}".format(numbr, sqre + m, int(numbr//(sqre + m))))
+            if numb % (sqr + m) == 0:
+                print("{}={}*{}".format(numb, sqr + m, int(numb//(sqr + m))))
                 return
-            if numbr % (sqre - m) == 0:
-                print("{}={}*{}".format(numbr, sqre - 1, int(numbr//(sqre - m))))
+            if numb % (sqr - m) == 0:
+                print("{}={}*{}".format(numb, sqr - 1, int(numb//(sqr - m))))
                 return
 
 
